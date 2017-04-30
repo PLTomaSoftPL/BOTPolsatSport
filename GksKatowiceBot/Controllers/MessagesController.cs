@@ -1520,7 +1520,7 @@ namespace GksKatowiceBot
                             message.Conversation = new ConversationAccount(id: conversationId.Id);
                             message.AttachmentLayout = AttachmentLayoutTypes.Carousel;
                             List<IGrouping<string, string>> hrefList = new List<IGrouping<string, string>>();
-                            message.Text = @"Cześć,
+                            message.Text = @"Cześć "+userAccount.Name+@",
 Jestem BOTem, Twoim asystentem do kontaktu ze stronami internetowymi Polsat Sport. 
 W każdej chwili umożliwię Ci dostęp do wiadomości sportowych i wideo, oraz powiadomię Cię
 raz dziennie, wieczorem o wydarzeniach z całego dnia.";
@@ -1632,7 +1632,7 @@ poczekać. Nie jestem leniwy, ale rozumiesz, nie wszystko zależy tylko ode mnie
                             message.Conversation = new ConversationAccount(id: conversationId.Id);
                             message.AttachmentLayout = AttachmentLayoutTypes.Carousel;
                             List<IGrouping<string, string>> hrefList = new List<IGrouping<string, string>>();
-                            message.Text = @"Cześć,
+                            message.Text = @"Cześć " + userAccount.Name + @",
 Jestem BOTem, Twoim asystentem do kontaktu ze stronami internetowymi Polsat Sport. 
 W każdej chwili umożliwię Ci dostęp do wiadomości sportowych i wideo, oraz powiadomię Cię
 raz dziennie, wieczorem o wydarzeniach z całego dnia.";
