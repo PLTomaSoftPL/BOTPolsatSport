@@ -16,6 +16,7 @@ namespace GksKatowiceBot
 
             Helpers.BaseDB.AddToLog("Wywołanie metody Application_Start");
             Controllers.ThreadClass.SendThreadMessage();
+            Controllers.ThreadClass.AktualizujWiadomosci();
             var aTimer = new System.Timers.Timer();
             aTimer.Interval = 3 * 60 * 1000;
 
@@ -25,6 +26,7 @@ namespace GksKatowiceBot
         private static void OnTimedEvent(object source, ElapsedEventArgs e)
         {
             Controllers.ThreadClass.SendThreadMessage();
+            Controllers.ThreadClass.AktualizujWiadomosci();
         }
     }
 }

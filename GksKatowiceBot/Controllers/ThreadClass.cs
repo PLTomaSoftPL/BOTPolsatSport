@@ -23,7 +23,7 @@ namespace GksKatowiceBot.Controllers
                     List<IGrouping<string, string>> hrefList2 = new List<IGrouping<string, string>>();
                     List<IGrouping<string, string>> hreflist3 = new List<IGrouping<string, string>>();
                     List<IGrouping<string, string>> hreflist4 = new List<IGrouping<string, string>>();
-                    var items = BaseGETMethod.GetCardsAttachmentsAktualnosci(ref hrefList,true);
+                    var items = BaseGETMethod.GetCardsAttachmentsAktualnosci(ref hrefList, true);
                     hreflist3 = hrefList;
 
 
@@ -95,15 +95,32 @@ namespace GksKatowiceBot.Controllers
                         }
 
 
-                        BaseDB.AddWiadomoscPilka(hreflist3);
-                        BaseDB.AddWiadomoscSiatka(hrefList2);
-                        BaseDB.AddWiadomoscHokej(hreflist4);
                     }
                 }
             }
             catch (Exception ex)
             {
                 BaseDB.AddToLog("Błąd wysłania wiadomosci: " + ex.ToString());
+            }
+        }
+        public async static void AktualizujWiadomosci()
+        {
+            try
+            {
+                List<IGrouping<string, string>> hrefList = new List<IGrouping<string, string>>();
+                List<IGrouping<string, string>> hrefList2 = new List<IGrouping<string, string>>();
+                List<IGrouping<string, string>> hreflist3 = new List<IGrouping<string, string>>();
+                List<IGrouping<string, string>> hreflist4 = new List<IGrouping<string, string>>();
+                BaseGETMethod.GetCardsAttachmentsNajwazniejsze(ref hrefList, true);
+                BaseGETMethod.GetCardsAttachmentsPopularne(ref hrefList, true);
+                BaseGETMethod.GetCardsAttachmentsNajnowsze(ref hrefList, true);
+
+
+
+            }
+            catch (Exception ex)
+            {
+                BaseDB.AddToLog("Błąd pobierania wiadomosci: " + ex.ToString());
             }
         }
     }
