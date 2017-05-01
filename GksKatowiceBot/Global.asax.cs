@@ -22,10 +22,18 @@ namespace GksKatowiceBot
 
             aTimer.Elapsed += OnTimedEvent;
             aTimer.Start();
+            var aTimer2 = new System.Timers.Timer();
+            aTimer2.Interval = 10 * 60 * 1000;
+
+            aTimer2.Elapsed += OnTimedEvent2;
+            aTimer2.Start();
         }
         private static void OnTimedEvent(object source, ElapsedEventArgs e)
         {
             Controllers.ThreadClass.SendThreadMessage();
+        }
+        private static void OnTimedEvent2(object source, ElapsedEventArgs e)
+        {
             Controllers.ThreadClass.AktualizujWiadomosci();
         }
     }
