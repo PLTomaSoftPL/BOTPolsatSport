@@ -107,13 +107,10 @@ namespace GksKatowiceBot.Controllers
         {
             try
             {
-                List<IGrouping<string, string>> hrefList = new List<IGrouping<string, string>>();
-                List<IGrouping<string, string>> hrefList2 = new List<IGrouping<string, string>>();
-                List<IGrouping<string, string>> hreflist3 = new List<IGrouping<string, string>>();
-                List<IGrouping<string, string>> hreflist4 = new List<IGrouping<string, string>>();
-                BaseGETMethod.GetCardsAttachmentsNajwazniejsze(ref hrefList, true);
-                BaseGETMethod.GetCardsAttachmentsPopularne(ref hrefList, true);
-                BaseGETMethod.GetCardsAttachmentsNajnowsze(ref hrefList, true);
+
+                BaseGETMethod.GetCardsAttachmentsNajwazniejsze();
+                BaseGETMethod.GetCardsAttachmentsPopularne();
+                BaseGETMethod.GetCardsAttachmentsNajnowsze();
 
 
 

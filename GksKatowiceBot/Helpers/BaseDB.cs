@@ -193,7 +193,7 @@ namespace GksKatowiceBot.Helpers
                 cmd.CommandText = "Delete from [dbo].[WiadomosciPSNajwazniejszeImg]";
                 cmd.CommandType = CommandType.Text;
                 cmd.Connection = sqlConnection1;
-
+                cmd.ExecuteNonQuery();
 
                 cmd.CommandText = "INSERT INTO [dbo].[WiadomosciPSNajwazniejszeImg] (Nazwa,DataUtw,Wiadomosc1,Wiadomosc2,Wiadomosc3,Wiadomosc4,Wiadomosc5,Wiadomosc6,Wiadomosc7,Wiadomosc8,Wiadomosc9,Wiadomosc10) VALUES ('" + "" + "','" + DateTime.Now + "','" + hrefList[0] + "','" + hrefList[1] + "','" + hrefList[2] + "','" + hrefList[3] + "','" + hrefList[4] + "','" + hrefList[5] + "','" + hrefList[6] + "','" + hrefList[7] + "','" + hrefList[8] + "','" + hrefList[9] + "')";
                 cmd.CommandType = CommandType.Text;
@@ -223,7 +223,7 @@ namespace GksKatowiceBot.Helpers
                 cmd.CommandText = "Delete from [dbo].[WiadomosciPSNajwazniejszeTytul]";
                 cmd.CommandType = CommandType.Text;
                 cmd.Connection = sqlConnection1;
-
+                cmd.ExecuteNonQuery();
 
                 cmd.CommandText = "INSERT INTO [dbo].[WiadomosciPSNajwazniejszeTytul]  (Nazwa,DataUtw,Wiadomosc1,Wiadomosc2,Wiadomosc3,Wiadomosc4,Wiadomosc5,Wiadomosc6,Wiadomosc7,Wiadomosc8,Wiadomosc9,Wiadomosc10) VALUES ('" + "" + "','" + DateTime.Now + "','" + hrefList[0] + "','" + hrefList[1] + "','" + hrefList[2] + "','" + hrefList[3] + "','" + hrefList[4] + "','" + hrefList[5] + "','" + hrefList[6] + "','" + hrefList[7] + "','" + hrefList[8] + "','" + hrefList[9] + "')";
                 cmd.CommandType = CommandType.Text;
@@ -346,7 +346,7 @@ namespace GksKatowiceBot.Helpers
                 sqlConnection1.Open();
 
                 cmd.CommandText = "Select Wiadomosc1,Wiadomosc2,Wiadomosc3,Wiadomosc4,Wiadomosc5,Wiadomosc6,Wiadomosc7," +
-                    "Wiadomosc8,Wiadomosc9,Wiadomosc10 from [dbo].[WiadomosciPSNajwazniejsze]";
+                    "Wiadomosc8,Wiadomosc9,Wiadomosc10 from [dbo].[WiadomosciPSPopularne]";
                 cmd.CommandType = CommandType.Text;
                 cmd.Connection = sqlConnection1;
 
@@ -357,6 +357,8 @@ namespace GksKatowiceBot.Helpers
                 da.Dispose();
                 return dataTable;
             }
+
+
             catch (Exception ex)
             {
                 AddToLog("Błąd dodawania wiadomości: " + ex.ToString());
@@ -535,10 +537,10 @@ namespace GksKatowiceBot.Helpers
 
                 sqlConnection1.Open();
 
-                cmd.CommandText = "Delete from [dbo].[WiadomosciNajnowsze]";
+                cmd.CommandText = "Delete from [dbo].[WiadomosciPSNajnowsze]";
                 cmd.CommandType = CommandType.Text;
                 cmd.Connection = sqlConnection1;
-
+                cmd.ExecuteNonQuery();
 
                 cmd.CommandText = "INSERT INTO [dbo].[WiadomosciPSNajnowsze]  (Nazwa,DataUtw,Wiadomosc1,Wiadomosc2,Wiadomosc3,Wiadomosc4,Wiadomosc5,Wiadomosc6,Wiadomosc7,Wiadomosc8,Wiadomosc9,Wiadomosc10) VALUES ('" + "" + "','" + DateTime.Now + "','" + hrefList[0] + "','" + hrefList[1] + "','" + hrefList[2] + "','" + hrefList[3] + "','" + hrefList[4] + "','" + hrefList[5] + "','" + hrefList[6] + "','" + hrefList[7] + "','" + hrefList[8] + "','" + hrefList[9] + "')";
                 cmd.CommandType = CommandType.Text;
@@ -565,10 +567,10 @@ namespace GksKatowiceBot.Helpers
 
                 sqlConnection1.Open();
 
-                cmd.CommandText = "Delete from [dbo].[WiadomosciNajnowszeImg]";
+                cmd.CommandText = "Delete from [dbo].[WiadomosciPSNajnowszeImg]";
                 cmd.CommandType = CommandType.Text;
                 cmd.Connection = sqlConnection1;
-
+                cmd.ExecuteNonQuery();
 
                 cmd.CommandText = "INSERT INTO [dbo].[WiadomosciPSNajnowszeImg]  (Nazwa,DataUtw,Wiadomosc1,Wiadomosc2,Wiadomosc3,Wiadomosc4,Wiadomosc5,Wiadomosc6,Wiadomosc7,Wiadomosc8,Wiadomosc9,Wiadomosc10) VALUES ('" + "" + "','" + DateTime.Now + "','" + hrefList[0] + "','" + hrefList[1] + "','" + hrefList[2] + "','" + hrefList[3] + "','" + hrefList[4] + "','" + hrefList[5] + "','" + hrefList[6] + "','" + hrefList[7] + "','" + hrefList[8] + "','" + hrefList[9] + "')";
                 cmd.CommandType = CommandType.Text;
@@ -594,10 +596,10 @@ namespace GksKatowiceBot.Helpers
 
                 sqlConnection1.Open();
 
-                cmd.CommandText = "Delete from [dbo].[WiadomosciNajnowszeTytul]";
+                cmd.CommandText = "Delete from [dbo].[WiadomosciPSNajnowszeTytul]";
                 cmd.CommandType = CommandType.Text;
                 cmd.Connection = sqlConnection1;
-
+                cmd.ExecuteNonQuery();
 
                 cmd.CommandText = "INSERT INTO [dbo].[WiadomosciPSNajnowszeTytul] (Nazwa,DataUtw,Wiadomosc1,Wiadomosc2,Wiadomosc3,Wiadomosc4,Wiadomosc5,Wiadomosc6,Wiadomosc7,Wiadomosc8,Wiadomosc9,Wiadomosc10) VALUES ('" + "" + "','" + DateTime.Now + "','" + hrefList[0] + "','" + hrefList[1] + "','" + hrefList[2] + "','" + hrefList[3] + "','" + hrefList[4] + "','" + hrefList[5] + "','" + hrefList[6] + "','" + hrefList[7] + "','" + hrefList[8] + "','" + hrefList[9] + "')";
                 cmd.CommandType = CommandType.Text;
@@ -627,7 +629,7 @@ namespace GksKatowiceBot.Helpers
                 cmd.CommandText = "Delete from [dbo].[WiadomosciPSPopularne]";
                 cmd.CommandType = CommandType.Text;
                 cmd.Connection = sqlConnection1;
-
+                cmd.ExecuteNonQuery();
 
                 cmd.CommandText = "INSERT INTO [dbo].[WiadomosciPSPopularne] (Nazwa,DataUtw,Wiadomosc1,Wiadomosc2,Wiadomosc3,Wiadomosc4,Wiadomosc5,Wiadomosc6,Wiadomosc7,Wiadomosc8,Wiadomosc9,Wiadomosc10) VALUES ('" + "" + "','" + DateTime.Now + "','" + hrefList[0] + "','" + hrefList[1] + "','" + hrefList[2] + "','" + hrefList[3] + "','" + hrefList[4] + "','" + hrefList[5] + "','" + hrefList[6] + "','" + hrefList[7] + "','" + hrefList[8] + "','" + hrefList[9] + "')";
                 cmd.CommandType = CommandType.Text;
@@ -657,7 +659,7 @@ namespace GksKatowiceBot.Helpers
                 cmd.CommandText = "Delete from [dbo].[WiadomosciPSPopularneImg]";
                 cmd.CommandType = CommandType.Text;
                 cmd.Connection = sqlConnection1;
-
+                cmd.ExecuteNonQuery();
 
                 cmd.CommandText = "INSERT INTO [dbo].[WiadomosciPSPopularneImg] (Nazwa,DataUtw,Wiadomosc1,Wiadomosc2,Wiadomosc3,Wiadomosc4,Wiadomosc5,Wiadomosc6,Wiadomosc7,Wiadomosc8,Wiadomosc9,Wiadomosc10) VALUES ('" + "" + "','" + DateTime.Now + "','" + hrefList[0] + "','" + hrefList[1] + "','" + hrefList[2] + "','" + hrefList[3] + "','" + hrefList[4] + "','" + hrefList[5] + "','" + hrefList[6] + "','" + hrefList[7] + "','" + hrefList[8] + "','" + hrefList[9] + "')";
                 cmd.CommandType = CommandType.Text;
@@ -687,6 +689,7 @@ namespace GksKatowiceBot.Helpers
                 cmd.CommandText = "Delete from [dbo].[WiadomosciPSPopularneTytul]";
                 cmd.CommandType = CommandType.Text;
                 cmd.Connection = sqlConnection1;
+                cmd.ExecuteNonQuery();
 
 
                 cmd.CommandText = "INSERT INTO [dbo].[WiadomosciPSPopularneTytul] (Nazwa,DataUtw,Wiadomosc1,Wiadomosc2,Wiadomosc3,Wiadomosc4,Wiadomosc5,Wiadomosc6,Wiadomosc7,Wiadomosc8,Wiadomosc9,Wiadomosc10) VALUES ('" + "" + "','" + DateTime.Now + "','" + hrefList[0] + "','" + hrefList[1] + "','" + hrefList[2] + "','" + hrefList[3] + "','" + hrefList[4] + "','" + hrefList[5] + "','" + hrefList[6] + "','" + hrefList[7] + "','" + hrefList[8] + "','" + hrefList[9] + "')";

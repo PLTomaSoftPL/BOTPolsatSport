@@ -831,7 +831,7 @@ namespace GksKatowiceBot.Helpers
 
 
 
-        public static void GetCardsAttachmentsPopularne(ref List<IGrouping<string, string>> hrefList, bool newUser = false)
+        public static void GetCardsAttachmentsPopularne()
         {
             List<Attachment> list = new List<Attachment>();
 
@@ -959,7 +959,7 @@ namespace GksKatowiceBot.Helpers
 
 
 
-        public static void GetCardsAttachmentsNajwazniejsze(ref List<IGrouping<string, string>> hrefList, bool newUser = false)
+        public static void GetCardsAttachmentsNajwazniejsze()
         {
             List<Attachment> list = new List<Attachment>();
 
@@ -1313,7 +1313,7 @@ namespace GksKatowiceBot.Helpers
 
         }
 
-        public static void GetCardsAttachmentsNajnowsze(ref List<IGrouping<string, string>> hrefList, bool newUser = false)
+        public static void GetCardsAttachmentsNajnowsze()
         {
             List<Attachment> list = new List<Attachment>();
 
