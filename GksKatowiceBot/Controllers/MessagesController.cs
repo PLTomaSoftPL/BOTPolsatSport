@@ -60,7 +60,7 @@ namespace GksKatowiceBot
                         else if(activity.Text.Contains("polsatsport.pl/"))
                         {
                             activity.Attachments = BaseGETMethod.GetCardsAttachmentsExtra2(false, activity.Text);
-                            activity.Text = "Z ostatniej chwili";
+                            activity.Text = "HIT!";
                             czyKarta = true;
                         }
 
