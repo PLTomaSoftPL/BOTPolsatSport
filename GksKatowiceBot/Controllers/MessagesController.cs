@@ -31,12 +31,13 @@ namespace GksKatowiceBot
             {
                 if (activity.Type == ActivityTypes.Message)
                 {
+                    bool czyKarta = false;
 
                     if (BaseDB.czyAdministrator(activity.From.Id) != null && (((activity.Text != null && activity.Text.IndexOf("!!!") == 0) || (activity.Attachments != null && activity.Attachments.Count > 0))))
                     {
                         WebClient client = new WebClient();
 
-                        if (activity.Attachments != null)
+                        if (activity.Attachments != null && activity.Attachments.Count>0 && !activity.Text.Contains("polsatsport.pl/"))
                         {
                             //Uri uri = new Uri(activity.Attachments[0].ContentUrl);
                             string filename = activity.Attachments[0].ContentUrl.Substring(activity.Attachments[0].ContentUrl.Length - 4, 3).Replace(".", "");
@@ -56,8 +57,15 @@ namespace GksKatowiceBot
                             else if (activity.Attachments[0].ContentType.Contains("video")) client.UploadData(filename + ".mp4", data);
                         }
 
+                        else if(activity.Text.Contains("polsatsport.pl/"))
+                        {
+                            activity.Attachments = BaseGETMethod.GetCardsAttachmentsExtra2(false, activity.Text);
+                            activity.Text = "Z ostatniej chwili";
+                            czyKarta = true;
+                        }
 
-                        CreateMessage(activity.Attachments, activity.Text == null ? "" : activity.Text.Replace("!!!", ""), activity.From.Id);
+
+                        CreateMessage(activity.Attachments, activity.Text == null ? "" : activity.Text.Replace("!!!", ""), activity.From.Id,czyKarta);
 
                     }
                     else
@@ -1521,7 +1529,10 @@ namespace GksKatowiceBot
                             message.Conversation = new ConversationAccount(id: conversationId.Id);
                             message.AttachmentLayout = AttachmentLayoutTypes.Carousel;
                             List<IGrouping<string, string>> hrefList = new List<IGrouping<string, string>>();
-                            message.Text = @"Cześć " + userAccount.Name + @",
+
+                            if (userAccount.Name == "") userAccount.Name = " ";
+                            
+                            message.Text = @"Cześć " + userAccount.Name.Substring(0,userAccount.Name.IndexOf(' ')) + @",
 Jestem BOTem, Twoim asystentem do kontaktu ze stronami internetowymi Polsat Sport. 
 W każdej chwili umożliwię Ci dostęp do wiadomości sportowych i wideo, oraz powiadomię Cię
 raz dziennie, wieczorem o wydarzeniach z całego dnia.";
@@ -1633,7 +1644,11 @@ poczekać. Nie jestem leniwy, ale rozumiesz, nie wszystko zależy tylko ode mnie
                             message.Conversation = new ConversationAccount(id: conversationId.Id);
                             message.AttachmentLayout = AttachmentLayoutTypes.Carousel;
                             List<IGrouping<string, string>> hrefList = new List<IGrouping<string, string>>();
-                            message.Text = @"Cześć " + userAccount.Name + @",
+
+                            if (userAccount.Name == "") userAccount.Name = " ";
+
+
+                            message.Text = @"Cześć " + userAccount.Name.Substring(0, userAccount.Name.IndexOf(' ')) + @",
 Jestem BOTem, Twoim asystentem do kontaktu ze stronami internetowymi Polsat Sport. 
 W każdej chwili umożliwię Ci dostęp do wiadomości sportowych i wideo, oraz powiadomię Cię
 raz dziennie, wieczorem o wydarzeniach z całego dnia.";
@@ -2028,7 +2043,7 @@ poczekać. Nie jestem leniwy, ale rozumiesz, nie wszystko zależy tylko ode mnie
             return response;
         }
 
-        internal async static void CreateMessage(IList<Attachment> foto, string wiadomosc, string fromId)
+        internal async static void CreateMessage(IList<Attachment> foto, string wiadomosc, string fromId, bool czyKarta = false)
         {
             try
             {
@@ -2066,19 +2081,22 @@ poczekać. Nie jestem leniwy, ale rozumiesz, nie wszystko zależy tylko ode mnie
                     });
 
                     message.AttachmentLayout = null;
+                    
+                    message.Text = wiadomosc;
 
                     if (foto != null && foto.Count > 0)
                     {
-                        string filename = foto[0].ContentUrl.Substring(foto[0].ContentUrl.Length - 4, 3).Replace(".", "");
+                        if (!czyKarta)
+                        {
+                            string filename = foto[0].ContentUrl.Substring(foto[0].ContentUrl.Length - 4, 3).Replace(".", "");
 
-                        if (foto[0].ContentType.Contains("image")) foto[0].ContentUrl = "http://serwer1606926.home.pl/pub/" + filename + ".png";//since the baseaddress
-                        else if (foto[0].ContentType.Contains("video")) foto[0].ContentUrl = "http://serwer1606926.home.pl/pub/" + filename + ".mp4";
-
+                            if (foto[0].ContentType.Contains("image")) foto[0].ContentUrl = "http://serwer1606926.home.pl/pub/" + filename + ".png";//since the baseaddress
+                            else if (foto[0].ContentType.Contains("video")) foto[0].ContentUrl = "http://serwer1606926.home.pl/pub/" + filename + ".mp4";
+                        }
                         //foto[0].ContentUrl = "http://serwer1606926.home.pl/pub/" + filename + ".png";
-
-                        message.Attachments = foto;
+                                                
                     }
-
+                    message.Attachments = foto;
 
                     //var list = new List<Attachment>();
                     //if (foto != null)
@@ -2093,14 +2111,15 @@ poczekać. Nie jestem leniwy, ale rozumiesz, nie wszystko zależy tylko ode mnie
                     //    }
                     //}
 
-                    message.Text = wiadomosc;
+
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
+                        BaseDB.AddToLog("Ilość użytkowników "+dt.Rows.Count);
                         try
                         {
                             if (fromId != dt.Rows[i]["UserId"].ToString())
                             {
-
+                                BaseDB.AddToLog("Wysyłam do " + dt.Rows[i]["UserId"].ToString());
                                 var userAccount = new ChannelAccount(name: dt.Rows[i]["UserName"].ToString(), id: dt.Rows[i]["UserId"].ToString());
                                 uzytkownik = userAccount.Name;
                                 var botAccount = new ChannelAccount(name: dt.Rows[i]["BotName"].ToString(), id: dt.Rows[i]["BotId"].ToString());

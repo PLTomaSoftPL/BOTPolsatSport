@@ -883,7 +883,7 @@ namespace GksKatowiceBot.Helpers
                                   .ToList();
 
                 var titleList = doc2.DocumentNode.SelectNodes("//a")
-                                  .Select(p => p.GetAttributeValue("title", "not found"))
+                                  .Select(p => p.GetAttributeValue("title", "not found").Replace("'","''"))
                                   .ToList();
 
 
@@ -1011,7 +1011,7 @@ namespace GksKatowiceBot.Helpers
                                   .ToList();
 
                 var titleList = doc2.DocumentNode.SelectNodes("//a")
-                                  .Select(p => p.GetAttributeValue("title", "not found"))
+                                  .Select(p => p.GetAttributeValue("title", "not found").Replace("'","''"))
                                   .ToList();
 
                 
@@ -1365,7 +1365,7 @@ namespace GksKatowiceBot.Helpers
                                   .ToList();
 
                 var titleList = doc2.DocumentNode.SelectNodes("//a")
-                                  .Select(p => p.GetAttributeValue("title", "not found"))
+                                  .Select(p => p.GetAttributeValue("title", "not found").Replace("'","''"))
                                   .ToList();
 
 
@@ -2780,6 +2780,86 @@ namespace GksKatowiceBot.Helpers
 
         }
 
+        public static IList<Attachment> GetCardsAttachmentsExtra2( bool newUser = false, string urlAddress = "")
+        {
+            List<Attachment> list = new List<Attachment>();
 
+
+            urlAddress = urlAddress.Replace("!!!", ""); 
+            
+
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(urlAddress);
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+
+            
+            // string urlAddress = "http://www.orlenliga.pl/";
+
+            request = (HttpWebRequest)WebRequest.Create(urlAddress);
+            response = (HttpWebResponse)request.GetResponse();
+
+            var listTemp2 = new List<System.Linq.IGrouping<string, string>>();
+
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+
+                Stream receiveStream = response.GetResponseStream();
+                StreamReader readStream = null;
+
+                receiveStream = response.GetResponseStream();
+                readStream = null;
+
+                if (response.CharacterSet == null)
+                {
+                    readStream = new StreamReader(receiveStream);
+                }
+                else
+                {
+                    readStream = new StreamReader(receiveStream, Encoding.UTF8);
+                }
+
+                var data = readStream.ReadToEnd();
+
+                var doc = new HtmlDocument();
+                doc.LoadHtml(data);
+
+                var matchResultDivId = "news";
+                var xpath = String.Format("//section[@id='{0}']", matchResultDivId);
+                var people = doc.DocumentNode.SelectNodes(xpath);//.Select(p => p.InnerHtml);
+                var text = "";
+                foreach (var person in people)
+                {
+                    text += person.InnerHtml;
+                }
+                var doc2 = new HtmlDocument();
+                doc2.LoadHtml(text);
+
+                var value = doc2.DocumentNode.SelectNodes("//img")
+                          .Select(p => p.GetAttributeValue("src", "not found")).Where(p => p.Contains("http")).ToList();
+
+                var value2 = doc2.DocumentNode.SelectNodes("//img")
+                          .Select(p => p.GetAttributeValue("alt", "not found")).ToList();
+                string imgLink = "";
+                string tytul = "";
+                if (value.Count() > 0)
+                {
+                    imgLink = value[0];
+                    tytul = value2[0];
+                }
+
+
+
+                list.Add(GetHeroCard(
+                    tytul, "", "",
+                    new CardImage(url: imgLink),
+                    new CardAction(ActionTypes.OpenUrl, "Zobacz", value: urlAddress),
+                    new CardAction(ActionTypes.OpenUrl, "Udostępnij", value: "https://www.facebook.com/sharer/sharer.php?u=" + urlAddress))
+                    );
+
+            }
+
+            return list;
+
+        }
     }
 }
