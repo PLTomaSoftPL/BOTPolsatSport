@@ -1548,26 +1548,9 @@ to poprzez wpisanie nazwy, frazy, pytania";
                             message.Text = @"W rozwijanym menu wybór opcji „ Powiadomienia” umożliwia odłączenie, bądź przyłączenie się do otrzymywania tych powiadomień.";
 
                             await connector.Conversations.SendToConversationAsync((Activity)message);
-
-                            message.Text = @"Polecenia możesz wydawać z rozwijanego menu, z moich podpowiedzi, a jeśli będziesz
-zainteresowany konkretną dyscypliną, klubem, zawodnikiem itp. to poprzez wpisanie
-nazwy, frazy i przesłaniu jej do mnie.";
-
-                            await connector.Conversations.SendToConversationAsync((Activity)message);
-
-                            message.Text = @"Jeśli polecenie będzie zrozumie dla mnie, natychmiast przystąpię do jego realizacji. Jeśli nie,
-
-to poproszę o wydanie nowego.
-W rozwijanym menu wybór opcji „ Powiadomienia” umożliwia odłączenie, bądź przyłączenie się do otrzymywania komunikatów i powiadomień.";
-
-                            await connector.Conversations.SendToConversationAsync((Activity)message);
-
-
-                            message.Text = @"Na koniec jedna uwaga. Czasami na wykonanie zleconego zadania będziesz musiał trochę
-
-poczekać. Nie jestem leniwy, ale rozumiesz, nie wszystko zależy tylko ode mnie.";
-
-                            await connector.Conversations.SendToConversationAsync((Activity)message);
+                            
+                            
+                            
                         }
                         else
                                     if (activity.Text == "DEVELOPER_DEFINED_PAYLOAD_HELP" || activity.Text == "O mnie")
@@ -1663,26 +1646,7 @@ to poprzez wpisanie nazwy, frazy, pytania";
                             message.Text = @"W rozwijanym menu wybór opcji „ Powiadomienia” umożliwia odłączenie, bądź przyłączenie się do otrzymywania tych powiadomień.";
 
                             await connector.Conversations.SendToConversationAsync((Activity)message);
-
-                            message.Text = @"Polecenia możesz wydawać z rozwijanego menu, z moich podpowiedzi, a jeśli będziesz
-zainteresowany konkretną dyscypliną, klubem, zawodnikiem itp. to poprzez wpisanie
-nazwy, frazy i przesłaniu jej do mnie.";
-
-                            await connector.Conversations.SendToConversationAsync((Activity)message);
-
-                            message.Text = @"Jeśli polecenie będzie zrozumie dla mnie, natychmiast przystąpię do jego realizacji. Jeśli nie,
-
-to poproszę o wydanie nowego.
-W rozwijanym menu wybór opcji „ Powiadomienia” umożliwia odłączenie, bądź przyłączenie się do otrzymywania komunikatów i powiadomień.";
-
-                            await connector.Conversations.SendToConversationAsync((Activity)message);
-
-
-                            message.Text = @"Na koniec jedna uwaga. Czasami na wykonanie zleconego zadania będziesz musiał trochę
-
-poczekać. Nie jestem leniwy, ale rozumiesz, nie wszystko zależy tylko ode mnie.";
-
-                            await connector.Conversations.SendToConversationAsync((Activity)message);
+                            
                         }
                         else if (activity.Text.Length <= 40)
                         {

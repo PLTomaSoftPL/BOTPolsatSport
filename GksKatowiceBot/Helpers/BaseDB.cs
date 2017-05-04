@@ -50,7 +50,7 @@ namespace GksKatowiceBot.Helpers
                 SqlCommand cmd = new SqlCommand();
                 SqlDataReader reader;
 
-                cmd.CommandText = "IF NOT EXISTS(Select * from [dbo].[UserPolsatSport] where UserId='" + UserId + "')BEGIN INSERT INTO [dbo].[UserPolsatSport] (UserName,UserId,BotName,BotId,Url,flgPlusLiga,DataUtw,flgDeleted) VALUES ('" + UserName + "','" + UserId + "','" + BotName + "','" + BotId + "','" + Url + "','" + flgTyp.ToString() + "','" + DateTime.Now + "','0')END";
+                cmd.CommandText = "IF NOT EXISTS(Select * from [dbo].[UserPolsatSport] where UserId='" + UserId + "')BEGIN INSERT INTO [dbo].[UserPolsatSport] (UserName,UserId,BotName,BotId,Url,flgPlusLiga,DataUtw,flgDeleted) VALUES ('" + UserName + "','" + UserId + "','" + BotName + "','" + BotId + "','" + Url + "','" + flgTyp.ToString() + "','" + DateTime.Now + "','0')END ELSE UPDATE [dbo].[UserPolsatSport] set flgDeleted=0 where UserId=" + UserId;
                 cmd.CommandType = CommandType.Text;
                 cmd.Connection = sqlConnection1;
 
