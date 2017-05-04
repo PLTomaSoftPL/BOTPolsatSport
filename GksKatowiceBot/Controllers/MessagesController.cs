@@ -711,7 +711,7 @@ namespace GksKatowiceBot
                             byte czyPowiadomienia = BaseDB.czyPowiadomienia(userAccount.Id);
                             if (czyPowiadomienia == 0)
                             {
-                                message.Text = "Opcja automatycznych, codziennych powiadomień o aktualnościach  jest włączona. Jeśli nie chcesz otrzymywać powiadomień  możesz je wyłączyć.";
+                                message.Text = "Opcja powiadomień jest włączona. Jeśli nie chcesz otrzymywać powiadomień  możesz je wyłączyć.";
                                 message.ChannelData = JObject.FromObject(new
                                 {
                                     notification_type = "REGULAR",
@@ -762,7 +762,7 @@ namespace GksKatowiceBot
                             }
                             else if (czyPowiadomienia == 1)
                             {
-                                message.Text = "Opcja automatycznych, codziennych  powiadomień o aktualnościach jest wyłączona. Jeśli chcesz otrzymywać powiadomienia możesz je włączyć.";
+                                message.Text = "Opcja   powiadomień  jest wyłączona. Jeśli chcesz otrzymywać powiadomienia możesz je włączyć.";
                                 message.ChannelData = JObject.FromObject(new
                                 {
                                     notification_type = "REGULAR",
@@ -892,7 +892,7 @@ namespace GksKatowiceBot
                             message.AttachmentLayout = AttachmentLayoutTypes.Carousel;
                             List<IGrouping<string, string>> hrefList = new List<IGrouping<string, string>>();
                             //  message.Attachments = BaseGETMethod.GetCardsAttachmentsNajnowsze(ref hrefList, true);
-                            message.Text = "Zrozumiałem, wyłączyłem automatyczne, codzienne powiadomienia o aktualnościach.";
+                            message.Text = "Powiadomienia zostały wyłączone.";
                             BaseDB.ChangeNotification(userAccount.Id, 1);
                             await connector.Conversations.SendToConversationAsync((Activity)message);
                         }
@@ -968,7 +968,7 @@ namespace GksKatowiceBot
                             message.AttachmentLayout = AttachmentLayoutTypes.Carousel;
                             List<IGrouping<string, string>> hrefList = new List<IGrouping<string, string>>();
                             //  message.Attachments = BaseGETMethod.GetCardsAttachmentsNajnowsze(ref hrefList, true);
-                            message.Text = "Zrozumiałem, włączyłem automatyczne, codzienne powiadomienia o aktualnościach.";
+                            message.Text = "Powiadomienia zostały włączone.";
                             BaseDB.ChangeNotification(userAccount.Id, 0);
                             await connector.Conversations.SendToConversationAsync((Activity)message);
                         }
@@ -1533,21 +1533,19 @@ namespace GksKatowiceBot
                             if (userAccount.Name == "") userAccount.Name = " ";
                             
                             message.Text = @"Cześć " + userAccount.Name.Substring(0,userAccount.Name.IndexOf(' ')) + @",
-Jestem BOTem, Twoim asystentem do kontaktu ze stronami internetowymi Polsat Sport. 
-W każdej chwili umożliwię Ci dostęp do wiadomości sportowych i wideo, oraz powiadomię Cię
-raz dziennie, wieczorem o wydarzeniach z całego dnia.";
+Jestem asystentem do kontaktu ze stronami internetowymi Polsat Sport.
+Polecenia możesz wydawać mi z rozwijanego menu, z moich podpowiedzi, a jeśli będziesz
+zainteresowany konkretną dyscypliną, klubem, zawodnikiem, czy aktualnym programem TV,
+to poprzez wpisanie nazwy, frazy, pytania";
                             // message.Attachments = GetCardsAttachments(ref hrefList, true);
 
                             await connector.Conversations.SendToConversationAsync((Activity)message);
 
-                            message.Text = @"Ponadto spodziewaj się również
-innych powiadomień w formie komunikatów, bądź informacji, zdjęć lub filmów
-przekazywanych przez moderatora, których nie znajdziesz na stronach internetowych.";
+                            message.Text = @"Ja ze swojej strony dodatkowo mogę powiadomić Cię o zbliżających się atrakcyjnych transmisjach telewizyjnych,  na bieżąco dostarczać  hitowych informacji sportowych  oraz wieczorem, w „Podsumowaniu dnia”,  przedstawić  najważniejsze wydarzenia.";
 
                             await connector.Conversations.SendToConversationAsync((Activity)message);
 
-                            message.Text = @"Współpraca między nami jest bardzo prosta. Wydajesz mi polecenia, a ja za Ciebie wykonuje
-robotę i czuwam, by najważniejsze informacje sportowe nie umknęły Twojej uwadze.";
+                            message.Text = @"W rozwijanym menu wybór opcji „ Powiadomienia” umożliwia odłączenie, bądź przyłączenie się do otrzymywania tych powiadomień.";
 
                             await connector.Conversations.SendToConversationAsync((Activity)message);
 
@@ -1648,22 +1646,21 @@ poczekać. Nie jestem leniwy, ale rozumiesz, nie wszystko zależy tylko ode mnie
                             if (userAccount.Name == "") userAccount.Name = " ";
 
 
+
                             message.Text = @"Cześć " + userAccount.Name.Substring(0, userAccount.Name.IndexOf(' ')) + @",
-Jestem BOTem, Twoim asystentem do kontaktu ze stronami internetowymi Polsat Sport. 
-W każdej chwili umożliwię Ci dostęp do wiadomości sportowych i wideo, oraz powiadomię Cię
-raz dziennie, wieczorem o wydarzeniach z całego dnia.";
+Jestem asystentem do kontaktu ze stronami internetowymi Polsat Sport.
+Polecenia możesz wydawać mi z rozwijanego menu, z moich podpowiedzi, a jeśli będziesz
+zainteresowany konkretną dyscypliną, klubem, zawodnikiem, czy aktualnym programem TV,
+to poprzez wpisanie nazwy, frazy, pytania";
                             // message.Attachments = GetCardsAttachments(ref hrefList, true);
 
                             await connector.Conversations.SendToConversationAsync((Activity)message);
 
-                            message.Text = @"Ponadto spodziewaj się również
-innych powiadomień w formie komunikatów, bądź informacji, zdjęć lub filmów
-przekazywanych przez moderatora, których nie znajdziesz na stronach internetowych.";
+                            message.Text = @"Ja ze swojej strony dodatkowo mogę powiadomić Cię o zbliżających się atrakcyjnych transmisjach telewizyjnych,  na bieżąco dostarczać  hitowych informacji sportowych  oraz wieczorem, w „Podsumowaniu dnia”,  przedstawić  najważniejsze wydarzenia.";
 
                             await connector.Conversations.SendToConversationAsync((Activity)message);
 
-                            message.Text = @"Współpraca między nami jest bardzo prosta. Wydajesz mi polecenia, a ja za Ciebie wykonuje
-robotę i czuwam, by najważniejsze informacje sportowe nie umknęły Twojej uwadze.";
+                            message.Text = @"W rozwijanym menu wybór opcji „ Powiadomienia” umożliwia odłączenie, bądź przyłączenie się do otrzymywania tych powiadomień.";
 
                             await connector.Conversations.SendToConversationAsync((Activity)message);
 
@@ -1852,7 +1849,7 @@ poczekać. Nie jestem leniwy, ale rozumiesz, nie wszystko zależy tylko ode mnie
                                 }
                                 else
                                 {
-                                    message.Text = "Niestety na nie znaleziono artykułów pasujących do wpisanego hasła na stronach PolsatSport.pl. Spóbuj ponownie.";
+                                    message.Text = "Niestety nie mogę pomóc . Nie znalazłem informacji na zadany temat.  Proszę o podpowiedź.";
                                 }
                                 // message.Attachments = BaseGETMethod.GetCardsAttachmentsGallery(ref hrefList, true);
 
