@@ -87,6 +87,8 @@ namespace GksKatowiceBot
                         }
 
                         MicrosoftAppCredentials.TrustServiceUrl(@"https://facebook.botframework.com", DateTime.MaxValue);
+                        MicrosoftAppCredentials.TrustServiceUrl(@"https://facebook.botframe", DateTime.MaxValue);
+
                         if (komenda == "DEVELOPER_DEFINED_PAYLOAD_Wydarzenia" || activity.Text == "DEVELOPER_DEFINED_PAYLOAD_Wydarzenia" || activity.Text == "Wydarzenia"
                             || activity.Text.ToUpper() == "WIADOMOŚCI" || activity.Text.ToUpper() == "AKTUALNOŚCI" || activity.Text.ToUpper() == "INFORMACJE" || activity.Text.ToUpper() == "WYDARZENIA")
                         {
