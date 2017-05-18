@@ -926,13 +926,19 @@ namespace GksKatowiceBot.Helpers
                             text += person.InnerHtml;
                         }
                         doc2.LoadHtml(text);
+                        List<string> value = new List<string>();
+                        try
+                        {
 
-                        var test = doc2.DocumentNode.SelectNodes("//img")
-                                  .Select(p => p.GetAttributeValue("src", "not found")).ToList();
+                            value = doc2.DocumentNode.SelectNodes("//img")
+                                      .Select(p => p.GetAttributeValue("src", "not found")).Where(p => p.Contains("http")).ToList();
 
-                        var value = doc2.DocumentNode.SelectNodes("//img")
-                                  .Select(p => p.GetAttributeValue("src", "not found")).Where(p => p.Contains("http")).ToList();
-                        if (value.Count() > 0)
+                        }
+                        catch
+                        {
+
+                        }
+                        if (value!=null&&value.Count() > 0)
                         {
                             imgList.Add(value[0]);
                         }
@@ -1055,12 +1061,19 @@ namespace GksKatowiceBot.Helpers
                         }
                         doc2.LoadHtml(text);
 
-                        var test = doc2.DocumentNode.SelectNodes("//img")
-                                  .Select(p => p.GetAttributeValue("src", "not found")).ToList();
+                        List<string> value = new List<string>();
+                        try
+                        {
 
-                        var value = doc2.DocumentNode.SelectNodes("//img")
-                                  .Select(p => p.GetAttributeValue("src", "not found")).Where(p => p.Contains("http")).ToList();
-                        if (value.Count() > 0)
+                            value = doc2.DocumentNode.SelectNodes("//img")
+                                      .Select(p => p.GetAttributeValue("src", "not found")).Where(p => p.Contains("http")).ToList();
+
+                        }
+                        catch
+                        {
+
+                        }
+                        if (value!=null&&value.Count() > 0)
                         {
                             imgList.Add(value[0]);
                         }
@@ -1408,13 +1421,19 @@ namespace GksKatowiceBot.Helpers
                             text += person.InnerHtml;
                         }
                         doc2.LoadHtml(text);
+                        List<string> value = new List<string>();
+                        try
+                        {
 
-                        var test = doc2.DocumentNode.SelectNodes("//img")
-                                  .Select(p => p.GetAttributeValue("src", "not found")).ToList();
+                            value = doc2.DocumentNode.SelectNodes("//img")
+                                      .Select(p => p.GetAttributeValue("src", "not found")).Where(p => p.Contains("http")).ToList();
 
-                        var value = doc2.DocumentNode.SelectNodes("//img")
-                                  .Select(p => p.GetAttributeValue("src", "not found")).Where(p => p.Contains("http")).ToList();
-                        if (value.Count() > 0)
+                        }
+                        catch
+                        {
+
+                        }
+                        if (value!=null&&value.Count() > 0)
                         {
                             imgList.Add(value[0]);
                         }

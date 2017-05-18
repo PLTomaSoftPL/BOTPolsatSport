@@ -35,7 +35,7 @@ namespace GksKatowiceBot.Controllers
                         try
                         {
                             MicrosoftAppCredentials.TrustServiceUrl(@"https://facebook.botframework.com", DateTime.MaxValue);
-                            MicrosoftAppCredentials.TrustServiceUrl(@"https://facebook.botframe", DateTime.MaxValue);
+                            
 
                             IMessageActivity message = Activity.CreateMessageActivity();
                             message.ChannelData = JObject.FromObject(new
