@@ -225,7 +225,7 @@ namespace GksKatowiceBot.Helpers
                 cmd.Connection = sqlConnection1;
                 cmd.ExecuteNonQuery();
 
-                cmd.CommandText = "INSERT INTO [dbo].[WiadomosciPSNajwazniejszeTytul]  (Nazwa,DataUtw,Wiadomosc1,Wiadomosc2,Wiadomosc3,Wiadomosc4,Wiadomosc5,Wiadomosc6,Wiadomosc7,Wiadomosc8,Wiadomosc9,Wiadomosc10) VALUES ('" + "" + "','" + DateTime.Now + "','" + hrefList[0] + "','" + hrefList[1] + "','" + hrefList[2] + "','" + hrefList[3] + "','" + hrefList[4] + "','" + hrefList[5] + "','" + hrefList[6] + "','" + hrefList[7] + "','" + hrefList[8] + "','" + hrefList[9] + "')";
+                cmd.CommandText = "INSERT INTO [dbo].[WiadomosciPSNajwazniejszeTytul]  (Nazwa,DataUtw,Wiadomosc1,Wiadomosc2,Wiadomosc3,Wiadomosc4,Wiadomosc5,Wiadomosc6,Wiadomosc7,Wiadomosc8,Wiadomosc9,Wiadomosc10) VALUES ('" + "" + "','" + DateTime.Now + "',N'" + hrefList[0] + "',N'" + hrefList[1] + "',N'" + hrefList[2] + "',N'" + hrefList[3] + "',N'" + hrefList[4] + "',N'" + hrefList[5] + "',N'" + hrefList[6] + "',N'" + hrefList[7] + "',N'" + hrefList[8] + "',N'" + hrefList[9] + "')";
                 cmd.CommandType = CommandType.Text;
                 cmd.Connection = sqlConnection1;
                 cmd.ExecuteNonQuery();
@@ -542,7 +542,7 @@ namespace GksKatowiceBot.Helpers
                 cmd.Connection = sqlConnection1;
                 cmd.ExecuteNonQuery();
 
-                cmd.CommandText = "INSERT INTO [dbo].[WiadomosciPSNajnowsze]  (Nazwa,DataUtw,Wiadomosc1,Wiadomosc2,Wiadomosc3,Wiadomosc4,Wiadomosc5,Wiadomosc6,Wiadomosc7,Wiadomosc8,Wiadomosc9,Wiadomosc10) VALUES ('" + "" + "','" + DateTime.Now + "','" + hrefList[0] + "','" + hrefList[1] + "','" + hrefList[2] + "','" + hrefList[3] + "','" + hrefList[4] + "','" + hrefList[5] + "','" + hrefList[6] + "','" + hrefList[7] + "','" + hrefList[8] + "','" + hrefList[9] + "')";
+                cmd.CommandText = "INSERT INTO [dbo].[WiadomosciPSNajnowsze]  (Nazwa,DataUtw,Wiadomosc1,Wiadomosc2,Wiadomosc3,Wiadomosc4,Wiadomosc5,Wiadomosc6,Wiadomosc7,Wiadomosc8,Wiadomosc9,Wiadomosc10) VALUES ('" + "" + "','" + DateTime.Now + "',N'" + hrefList[0] + "',N'" + hrefList[1] + "',N'" + hrefList[2] + "',N'" + hrefList[3] + "',N'" + hrefList[4] + "',N'" + hrefList[5] + "',N'" + hrefList[6] + "',N'" + hrefList[7] + "',N'" + hrefList[8] + "',N'" + hrefList[9] + "')";
                 cmd.CommandType = CommandType.Text;
                 cmd.Connection = sqlConnection1;
                 cmd.ExecuteNonQuery();
@@ -601,7 +601,7 @@ namespace GksKatowiceBot.Helpers
                 cmd.Connection = sqlConnection1;
                 cmd.ExecuteNonQuery();
 
-                cmd.CommandText = "INSERT INTO [dbo].[WiadomosciPSNajnowszeTytul] (Nazwa,DataUtw,Wiadomosc1,Wiadomosc2,Wiadomosc3,Wiadomosc4,Wiadomosc5,Wiadomosc6,Wiadomosc7,Wiadomosc8,Wiadomosc9,Wiadomosc10) VALUES ('" + "" + "','" + DateTime.Now + "','" + hrefList[0] + "','" + hrefList[1] + "','" + hrefList[2] + "','" + hrefList[3] + "','" + hrefList[4] + "','" + hrefList[5] + "','" + hrefList[6] + "','" + hrefList[7] + "','" + hrefList[8] + "','" + hrefList[9] + "')";
+                cmd.CommandText = "INSERT INTO [dbo].[WiadomosciPSNajnowszeTytul] (Nazwa,DataUtw,Wiadomosc1,Wiadomosc2,Wiadomosc3,Wiadomosc4,Wiadomosc5,Wiadomosc6,Wiadomosc7,Wiadomosc8,Wiadomosc9,Wiadomosc10) VALUES ('" + "" + "','" + DateTime.Now + "',N'" + hrefList[0] + "',N'" + hrefList[1] + "',N'" + hrefList[2] + "',N'" + hrefList[3] + "',N'" + hrefList[4] + "',N'" + hrefList[5] + "',N'" + hrefList[6] + "',N'" + hrefList[7] + "',N'" + hrefList[8] + "',N'" + hrefList[9] + "')";
                 cmd.CommandType = CommandType.Text;
                 cmd.Connection = sqlConnection1;
                 cmd.ExecuteNonQuery();
@@ -692,7 +692,7 @@ namespace GksKatowiceBot.Helpers
                 cmd.ExecuteNonQuery();
 
 
-                cmd.CommandText = "INSERT INTO [dbo].[WiadomosciPSPopularneTytul] (Nazwa,DataUtw,Wiadomosc1,Wiadomosc2,Wiadomosc3,Wiadomosc4,Wiadomosc5,Wiadomosc6,Wiadomosc7,Wiadomosc8,Wiadomosc9,Wiadomosc10) VALUES ('" + "" + "','" + DateTime.Now + "','" + hrefList[0] + "','" + hrefList[1] + "','" + hrefList[2] + "','" + hrefList[3] + "','" + hrefList[4] + "','" + hrefList[5] + "','" + hrefList[6] + "','" + hrefList[7] + "','" + hrefList[8] + "','" + hrefList[9] + "')";
+                cmd.CommandText = "INSERT INTO [dbo].[WiadomosciPSPopularneTytul] (Nazwa,DataUtw,Wiadomosc1,Wiadomosc2,Wiadomosc3,Wiadomosc4,Wiadomosc5,Wiadomosc6,Wiadomosc7,Wiadomosc8,Wiadomosc9,Wiadomosc10) VALUES ('" + "" + "','" + DateTime.Now + "',N'" + hrefList[0] + "',N'" + hrefList[1] + "',N'" + hrefList[2] + "',N'" + hrefList[3] + "',N'" + hrefList[4] + "',N'" + hrefList[5] + "',N'" + hrefList[6] + "',N'" + hrefList[7] + "',N'" + hrefList[8] + "',N'" + hrefList[9] + "')";
                 cmd.CommandType = CommandType.Text;
                 cmd.Connection = sqlConnection1;
                 cmd.ExecuteNonQuery();

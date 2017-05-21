@@ -1535,7 +1535,7 @@ namespace GksKatowiceBot
                             if (userAccount.Name == "") userAccount.Name = " ";
                             
                             message.Text = @"Cześć " + userAccount.Name.Substring(0,userAccount.Name.IndexOf(' ')) + @",
-Jestem asystentem do kontaktu ze stronami internetowymi Polsat Sport.
+Jestem asystentem do kontaktu ze stronami internetowymi Polsatu Sport.
 Polecenia możesz wydawać mi z rozwijanego menu, z moich podpowiedzi, a jeśli będziesz
 zainteresowany konkretną dyscypliną, klubem, zawodnikiem, czy aktualnym programem TV,
 to poprzez wpisanie nazwy, frazy, pytania";
@@ -1543,7 +1543,7 @@ to poprzez wpisanie nazwy, frazy, pytania";
 
                             await connector.Conversations.SendToConversationAsync((Activity)message);
 
-                            message.Text = @"Ja ze swojej strony dodatkowo mogę powiadomić Cię o zbliżających się atrakcyjnych transmisjach telewizyjnych,  na bieżąco dostarczać  hitowych informacji sportowych  oraz wieczorem, w „Podsumowaniu dnia”,  przedstawić  najważniejsze wydarzenia.";
+                            message.Text = @"Ja ze swojej strony dodatkowo mogę powiadomić Cię o zbliżających się atrakcyjnych transmisjach telewizyjnych,  na bieżąco dostarczać  hitowe informacji sportowych  oraz wieczorem, w „Podsumowaniu dnia”,  przedstawić  najważniejsze wydarzenia.";
 
                             await connector.Conversations.SendToConversationAsync((Activity)message);
 
@@ -1633,7 +1633,7 @@ to poprzez wpisanie nazwy, frazy, pytania";
 
 
                             message.Text = @"Cześć " + userAccount.Name.Substring(0, userAccount.Name.IndexOf(' ')) + @",
-Jestem asystentem do kontaktu ze stronami internetowymi Polsat Sport.
+Jestem asystentem do kontaktu ze stronami internetowymi Polsatu Sport.
 Polecenia możesz wydawać mi z rozwijanego menu, z moich podpowiedzi, a jeśli będziesz
 zainteresowany konkretną dyscypliną, klubem, zawodnikiem, czy aktualnym programem TV,
 to poprzez wpisanie nazwy, frazy, pytania";
@@ -1641,7 +1641,7 @@ to poprzez wpisanie nazwy, frazy, pytania";
 
                             await connector.Conversations.SendToConversationAsync((Activity)message);
 
-                            message.Text = @"Ja ze swojej strony dodatkowo mogę powiadomić Cię o zbliżających się atrakcyjnych transmisjach telewizyjnych,  na bieżąco dostarczać  hitowych informacji sportowych  oraz wieczorem, w „Podsumowaniu dnia”,  przedstawić  najważniejsze wydarzenia.";
+                            message.Text = @"Ja ze swojej strony dodatkowo mogę powiadomić Cię o zbliżających się atrakcyjnych transmisjach telewizyjnych,  na bieżąco dostarczać  hitowe informacji sportowych  oraz wieczorem, w „Podsumowaniu dnia”,  przedstawić  najważniejsze wydarzenia.";
 
                             await connector.Conversations.SendToConversationAsync((Activity)message);
 
