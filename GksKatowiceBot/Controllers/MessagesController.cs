@@ -1543,7 +1543,7 @@ to poprzez wpisanie nazwy, frazy, pytania";
 
                             await connector.Conversations.SendToConversationAsync((Activity)message);
 
-                            message.Text = @"Ja ze swojej strony dodatkowo mogę powiadomić Cię o zbliżających się atrakcyjnych transmisjach telewizyjnych,  na bieżąco dostarczać  hitowe informacji sportowych  oraz wieczorem, w „Podsumowaniu dnia”,  przedstawić  najważniejsze wydarzenia.";
+                            message.Text = @"Ja ze swojej strony dodatkowo mogę powiadomić Cię o zbliżających się atrakcyjnych transmisjach telewizyjnych,  na bieżąco dostarczać  hitowe informacje sportowe  oraz wieczorem, w „Podsumowaniu dnia”,  przedstawić  najważniejsze wydarzenia.";
 
                             await connector.Conversations.SendToConversationAsync((Activity)message);
 
@@ -1641,7 +1641,7 @@ to poprzez wpisanie nazwy, frazy, pytania";
 
                             await connector.Conversations.SendToConversationAsync((Activity)message);
 
-                            message.Text = @"Ja ze swojej strony dodatkowo mogę powiadomić Cię o zbliżających się atrakcyjnych transmisjach telewizyjnych,  na bieżąco dostarczać  hitowe informacji sportowych  oraz wieczorem, w „Podsumowaniu dnia”,  przedstawić  najważniejsze wydarzenia.";
+                            message.Text = @"Ja ze swojej strony dodatkowo mogę powiadomić Cię o zbliżających się atrakcyjnych transmisjach telewizyjnych,  na bieżąco dostarczać  hitowe informacje sportowe  oraz wieczorem, w „Podsumowaniu dnia”,  przedstawić  najważniejsze wydarzenia.";
 
                             await connector.Conversations.SendToConversationAsync((Activity)message);
 
